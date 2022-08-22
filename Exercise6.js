@@ -3,7 +3,7 @@
 Requirements: Draw a square with asterisks, but with blank spaces inside
 
 Test Cases:
-    draw_square(4) its should return:
+    drawSquare(4) its should return:
         ****
         *  *
         *  *
@@ -18,14 +18,18 @@ Steps:
 
 */
 
-function draw_square(number) {
+function canDraw(i, j, indexLastRow) {
+    return i == 0 || i === indexLastRow || j === 0 || j === indexLastRow;
+}
+
+function drawSquare(number) {
 
     let draw = '';
     let indexLastRow = number - 1
 
     for (let i = 0; i < number; i++) {
         for (let j = 0; j < number; j++) {
-            if (i == 0 || i === indexLastRow || j === 0 || j === indexLastRow) {
+            if (canDraw(i, j, indexLastRow)) {
                 draw += "*";
             } else {
                 draw += " ";
@@ -38,4 +42,4 @@ function draw_square(number) {
 
 }
 
-draw_square(4);
+drawSquare(4);
