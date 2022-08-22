@@ -14,7 +14,8 @@ Steps:
 */
 
 function invertNumber(number) {
-    return parseInt(number.toString().split('').reverse().join(''));
+    return parseInt(number.toString().split('').reverse().join('')) * Math.sign(number);
 }
 
 console.log(invertNumber(67));
+console.log(invertNumber(-125));
