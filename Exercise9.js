@@ -7,9 +7,7 @@ Test Cases:
 
 Steps:
     - create a function that receives two arrays of numbers
-    - create new variable to save the new array
-    - use the JS filter to get the elements include from array a into b
-    - return the new array
+    - use the JS filter to get the elements include from array a into b and return it
 
 */
 
