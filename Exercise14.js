@@ -17,11 +17,23 @@ Steps:
 function repeatMe(text, number) {
     let newString = "";
 
-    for (let i = 0; i < number; i++) {
+    for (let i = 0; i < number; i++) { // O(n)
         newString += text;
     }
 
     return newString;
 }
 
+// using prototype
+String.prototype.repeat = function repeatMe(number) {
+    let newString = "";
+
+    for (let i = 0; i < number; i++) {
+        newString += this;
+    }
+
+    return newString;
+}
+
 console.log(repeatMe("text", 2));
+console.log("text".repeat(2));
