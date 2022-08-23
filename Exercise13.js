@@ -38,5 +38,23 @@ function divideArray(arr, size) {
 
 }
 
-console.log(divideArray([7, 8, 9, 10], 2)); // return [7,8], [9,10]
-console.log(divideArray([7, 8, 9, 10, 5], 2)); // return [7,8], [9,10], [5]
+// this function is O(n) because only use one for, so this is a better option
+function divideArray2(arr, size) {
+    let arrayOfArrays = [];
+
+    for (let element of arr) {
+        let last = arrayOfArrays[arrayOfArrays.length - 1];
+
+        if (!last || last.length === size) {
+            arrayOfArrays.push([element]);
+        } else {
+            last.push(element);
+        }
+
+    }
+    return arrayOfArrays;
+
+}
+
+console.log(divideArray2([7, 8, 9, 10], 2)); // return [7,8], [9,10]
+console.log(divideArray2([7, 8, 9, 10, 5], 2)); // return [7,8], [9,10], [5]
