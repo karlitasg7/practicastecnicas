@@ -7,27 +7,16 @@ Test Cases:
 
 steps:
     - create a function that receives a text
-    - create a variable to save the counter
-    - make a for cycle for each letter in the phrase
-    - valid if the letter is a vowel, create a regex to validate it
-    - if the letter is a vowel increase the counter
-    - return the counter
+    - with a regular expresion get the match of the vowels
+    - return the length of the array
 
 */
 
 function vowels(text) {
-
-    let counter = 0;
-    let re = new RegExp("[aeiou]");
-
-    for (let letter of text) {
-        if (re.test(letter)) {
-            counter += 1;
-        }
-    }
-
-    return counter;
+    let arry = text.match(/[aeiou]/gi);
+    return arry ? arry.length : 0;
 }
 
 console.log(vowels("hello")); // return 2
 console.log(vowels("this is another test")); // return 6
+console.log(vowels("nn")); // return 0
