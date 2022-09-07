@@ -1,0 +1,1 @@
+This project has some exercise to practice java script
