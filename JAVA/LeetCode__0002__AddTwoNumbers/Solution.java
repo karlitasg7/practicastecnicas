@@ -2,66 +2,44 @@ package LeetCode__0002__AddTwoNumbers;
 
 public class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+
+        ListNode result  = new ListNode(0);
+        ListNode current = result;
+
         ListNode currentNodeList1 = l1;
         ListNode currentNodeList2 = l2;
-        ListNode lastItem         = currentNodeList1;
+        int      additionalNumber = 0;
 
-        int additionalNumber = 0;
-        while (currentNodeList2 != null) {
+        while (currentNodeList1 != null || currentNodeList2 != null || additionalNumber > 0) {
 
-            if (currentNodeList1 == null) { //when list 2 is biggest
+            int num1 = 0;
+            int num2 = 0;
 
-                String sumOfValues = String.valueOf(currentNodeList2.val + additionalNumber);
-
-                if (sumOfValues.length() > 1) {
-                    lastItem.next    = new ListNode(Integer.parseInt(sumOfValues.substring(1)));
-                    additionalNumber = 1;
-                } else {
-                    additionalNumber = 0;
-                    lastItem.next    = new ListNode(Integer.parseInt(sumOfValues));
-                }
-
-                lastItem         = lastItem.next;
-                currentNodeList2 = currentNodeList2.next;
-
-            } else {
-
-                String sumOfValues = String.valueOf(currentNodeList1.val + currentNodeList2.val + additionalNumber);
-
-                if (sumOfValues.length() > 1) {
-                    currentNodeList1.val = Integer.parseInt(sumOfValues.substring(1));
-                    additionalNumber     = 1;
-                } else {
-                    additionalNumber     = 0;
-                    currentNodeList1.val = Integer.parseInt(sumOfValues);
-                }
-
-                lastItem         = currentNodeList1;
+            if (currentNodeList1 != null) {
+                num1             = currentNodeList1.val;
                 currentNodeList1 = currentNodeList1.next;
+            }
+
+            if (currentNodeList2 != null) {
+                num2             = currentNodeList2.val;
                 currentNodeList2 = currentNodeList2.next;
             }
 
-        }
+            int sum = num1 + num2 + additionalNumber;
 
-        while (currentNodeList1 != null) {
-            String sumOfValues = String.valueOf(currentNodeList1.val + additionalNumber);
-
-            if (sumOfValues.length() > 1) {
-                currentNodeList1.val = Integer.parseInt(sumOfValues.substring(1));
-                additionalNumber     = 1;
+            ListNode newNode = new ListNode();
+            if (sum > 9) {
+                additionalNumber = sum / 10;
             } else {
-                additionalNumber     = 0;
-                currentNodeList1.val = Integer.parseInt(sumOfValues);
+                additionalNumber = 0;
             }
+            newNode.val = sum % 10;
 
-            lastItem         = currentNodeList1;
-            currentNodeList1 = currentNodeList1.next;
+            result.next = newNode;
+            result      = result.next;
+
         }
 
-        if (additionalNumber > 0) {
-            lastItem.next = new ListNode(additionalNumber, null);
-        }
-
-        return l1;
+        return current.next;
     }
 }

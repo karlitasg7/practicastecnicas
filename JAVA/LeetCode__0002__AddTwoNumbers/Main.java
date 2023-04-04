@@ -6,11 +6,11 @@ public class Main {
 
         ListNode listNode1 = new ListNode();
         listNode1.val  = 2;
-        listNode1.next = new ListNode(4, new ListNode(9, null));
+        listNode1.next = new ListNode(4, new ListNode(3, null));
 
         ListNode listNode2 = new ListNode();
         listNode2.val  = 5;
-        listNode2.next = new ListNode(6, new ListNode(4, new ListNode(9)));
+        listNode2.next = new ListNode(6, new ListNode(4, null));
 
         Solution solution = new Solution();
 

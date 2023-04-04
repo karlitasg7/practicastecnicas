@@ -21,16 +21,16 @@ public class ListNode {
 
         System.out.println("Print List.... >>>>>");
 
-        String textToPrint = "";
+        StringBuilder textToPrint = new StringBuilder(val + ",");
 
         ListNode currentNode = next;
 
-        textToPrint += currentNode.val;
+        textToPrint.append(currentNode.val);
 
         while (currentNode.next != null) {
             currentNode = currentNode.next;
 
-            textToPrint += "," + currentNode.val;
+            textToPrint.append(",").append(currentNode.val);
 
         }
 
