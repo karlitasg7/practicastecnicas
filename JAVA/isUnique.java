@@ -30,7 +30,7 @@ public class isUnique {
 
         for (char letter : text.toCharArray()) {
 
-            if (setWord.contains(letter)) {
+            if (setWord.contains(letter)) { // O(1)
                 return false;
             }
 
