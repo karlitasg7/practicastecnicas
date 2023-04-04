@@ -2,9 +2,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 /*
- * This problem is used to validate if a string has only unique characters or not
- * 
- * 
+ * This algorithm is used to validate if a string has only unique characters or not
+ *
  */
 public class isUnique {
 
@@ -44,7 +43,7 @@ public class isUnique {
 
     /*
      * this algorithm valid the same but not using additional data structures
-     * 
+     *
      * Time O(n2)
      * Space O(n)
      */
