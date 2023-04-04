@@ -27,18 +27,20 @@ public class Solution {
         mapValuesSpecials.put("CM", 900);
 
         int finalResult = 0;
-        
-        for (String key : mapValuesSpecials.keySet()) {
-            while (s.contains(key)) {
-                finalResult += mapValuesSpecials.get(key);
-                s = s.replaceFirst(key, mapValuesSpecials.get(key).toString());
-            }
-        }
 
-        for (String key : mapValues.keySet()) {
-            while (s.contains(key)) {
-                finalResult += mapValues.get(key);
-                s = s.replaceFirst(key, mapValues.get(key).toString());
+        for (int i = 0; i < s.length(); i++) {
+
+            if ((i + 1) < s.length()) {
+                String n = s.charAt(i) + "" + s.charAt(i + 1);
+
+                if (mapValuesSpecials.containsKey(n)) {
+                    finalResult += mapValuesSpecials.get(n);
+                    i++;
+                } else {
+                    finalResult += mapValues.get(String.valueOf(s.charAt(i)));
+                }
+            } else {
+                finalResult += mapValues.get(String.valueOf(s.charAt(i)));
             }
         }
 
