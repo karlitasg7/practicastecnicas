@@ -1,5 +1,7 @@
 package LeetCode__0002__AddTwoNumbers;
 
+import LeetCode__Shared.ListNode;
+
 public class Main {
 
     public static void main(String[] args) {
