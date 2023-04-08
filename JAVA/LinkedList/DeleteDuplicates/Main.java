@@ -7,8 +7,6 @@ public class Main {
 
     public static void main(String[] args) {
 
-        PrintLinkedList printLinkedList = new PrintLinkedList();
-
         RemoveDups removeDups = new RemoveDups();
         Node       head       = new Node(1);
         head.next                     = new Node(2);
@@ -17,11 +15,11 @@ public class Main {
         head.next.next.next.next      = new Node(4);
         head.next.next.next.next.next = new Node(1);
 
-        printLinkedList.print(head);
+        PrintLinkedList.print(head);
 
         removeDups.remove(head);
 
-        printLinkedList.print(head);
+        PrintLinkedList.print(head);
 
     }
 
