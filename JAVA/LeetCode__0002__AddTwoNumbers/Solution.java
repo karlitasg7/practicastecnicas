@@ -28,12 +28,8 @@ public class Solution {
             int sum = num1 + num2 + additionalNumber;
 
             ListNode newNode = new ListNode();
-            if (sum > 9) {
-                additionalNumber = sum / 10;
-            } else {
-                additionalNumber = 0;
-            }
-            newNode.val = sum % 10;
+            additionalNumber = sum / 10;
+            newNode.val      = sum % 10;
 
             result.next = newNode;
             result      = result.next;
