@@ -1,0 +1,24 @@
+package Trees.ValidateBST;
+
+import Trees.TreeNode;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        ValidateBST validateBst = new ValidateBST();
+        TreeNode    root        = new TreeNode(4);
+        root.left           = new TreeNode(5);
+        root.right          = new TreeNode(7);
+        root.left.left      = new TreeNode(1);
+        root.left.right     = new TreeNode(3);
+        root.left.left.left = new TreeNode(8);
+
+        System.out.println(validateBst.isValidBST(root));
+
+        root.left.value     = 2;
+        root.left.left.left = null;
+        System.out.println(validateBst.isValidBST(root));
+    }
+
+}
