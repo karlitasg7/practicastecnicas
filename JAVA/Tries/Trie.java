@@ -2,16 +2,25 @@ package Tries;
 
 public class Trie {
     TrieNode root;
+    boolean  ignoreCase;
 
     public Trie() {
         root = new TrieNode();
     }
 
-    public void insert(String word) {
-        TrieNode currentNode   = root;
-        String   lowercaseWord = word.toLowerCase();
+    public Trie(boolean ignoreCase) {
+        root            = new TrieNode();
+        this.ignoreCase = ignoreCase;
+    }
 
-        for (char c : lowercaseWord.toCharArray()) {
+    public void insert(String word) {
+        TrieNode currentNode = root;
+
+        if (ignoreCase) {
+            word = word.toLowerCase();
+        }
+
+        for (char c : word.toCharArray()) {
             TrieNode child = currentNode.children.get(c);
             if (child == null) {
                 child = new TrieNode();
@@ -24,15 +33,18 @@ public class Trie {
     }
 
     public boolean search(String prefix) {
-        TrieNode currentNode     = root;
-        String   prefixLowercase = prefix.toLowerCase();
+        TrieNode currentNode = root;
 
-        for (char c : prefixLowercase.toCharArray()) {
+        if (ignoreCase) {
+            prefix = prefix.toLowerCase();
+        }
+
+        for (char c : prefix.toCharArray()) {
             currentNode = currentNode.children.get(c);
             if (currentNode == null) return false;
         }
 
         return true;
     }
-    
+
 }
