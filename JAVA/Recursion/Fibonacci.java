@@ -1,8 +1,5 @@
 package Recursion;
 
-import java.time.Duration;
-import java.time.LocalDateTime;
-
 public class Fibonacci {
     // Given a number N return the index value of the Fibonacci sequence, where the sequence is:
 
@@ -48,27 +45,27 @@ public class Fibonacci {
     public static void main(String[] args) {
         num = 0;
 
-        LocalDateTime startTime;
-        LocalDateTime endTime;
+        long start;
+        long end;
 
         System.out.println("Iterative");
-        startTime = LocalDateTime.now();
-        System.out.println(fibonacciIteratively(100));
-        endTime = LocalDateTime.now();
+        start = System.nanoTime();
+        System.out.println(fibonacciIteratively(10));
+        end = System.nanoTime();
 
-        System.out.println(" time =  " + Duration.between(startTime, endTime).toMillis());
+        System.out.println(" time =  " + (end - start));
 
         System.out.println("Recursive Efficient");
-        startTime = LocalDateTime.now();
-        System.out.println(fibonacciRecursivelyEfficient(100, 1, 0));
-        endTime = LocalDateTime.now();
-        System.out.println(" time =  " + Duration.between(startTime, endTime).toMillis());
+        start = System.nanoTime();
+        System.out.println(fibonacciRecursivelyEfficient(10, 1, 0));
+        end = System.nanoTime();
+        System.out.println(" time =  " + (end - start));
 
         System.out.println("Recursive");
-        startTime = LocalDateTime.now();
-        System.out.println(fibonacciRecursively(100));
-        endTime = LocalDateTime.now();
-        System.out.println(" time =  " + Duration.between(startTime, endTime).toMillis());
+        start = System.nanoTime();
+        System.out.println(fibonacciRecursively(10));
+        end = System.nanoTime();
+        System.out.println(" time =  " + (end - start));
     }
 
 }
