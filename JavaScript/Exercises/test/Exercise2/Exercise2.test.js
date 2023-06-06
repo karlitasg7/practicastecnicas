@@ -9,5 +9,5 @@ test("check if word is palindrome", () => {
 })
 
 test("check if word isn't palindrome", () => {
-    expect(palindrome("karla")).toEqual(false);
+    expect(palindrome("karla")).toBe(false);
 })
