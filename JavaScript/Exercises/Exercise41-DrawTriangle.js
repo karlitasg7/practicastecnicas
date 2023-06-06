@@ -20,6 +20,7 @@ Steps:
 
 function draw(number) {
 
+    let result = "";
     let middle = Math.floor(number - 1);
 
     for (let row = 0; row < number; row++) {
@@ -32,9 +33,11 @@ function draw(number) {
                 rowContent += " ";
             }
         }
-        console.log(rowContent);
+        result += rowContent + "\n";
     }
+
+    return result;
 
 }
 
-draw(4);
+console.log(draw(4));
