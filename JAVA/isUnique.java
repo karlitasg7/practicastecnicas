@@ -18,6 +18,13 @@ public class isUnique {
         System.out.println(valid2("hi"));
         System.out.println(valid2("test"));
         System.out.println(valid2("other"));
+
+        // third algorithm
+
+        System.out.println("third algorithm.....");
+        System.out.println(isUniqueChars("hi"));
+        System.out.println(isUniqueChars("test"));
+        System.out.println(isUniqueChars("other"));
     }
 
     /*
@@ -26,7 +33,7 @@ public class isUnique {
      * space O(1)
      */
     private static boolean valid(String text) {
-        Set<Character> setWord = new HashSet<Character>(text.length());
+        Set<Character> setWord = new HashSet<>(text.length());
 
         for (char letter : text.toCharArray()) {
 
@@ -44,8 +51,8 @@ public class isUnique {
     /*
      * this algorithm valid the same but not using additional data structures
      *
-     * Time O(n2)
-     * Space O(n)
+     * Time O(n**2)
+     * Space O(1)
      */
     private static boolean valid2(String text) {
         for (int i = 0; i < text.length(); i++) {
@@ -57,6 +64,31 @@ public class isUnique {
         }
 
         return true;
+    }
+
+    /*
+
+    Time O(n), n = length of the string
+    Space O(1)
+     */
+    private static boolean isUniqueChars(String str) {
+
+        if (str.length() > 128) return false;
+
+        boolean[] charSet = new boolean[128];
+
+        for (int i = 0; i < str.length(); i++) {
+            int val = str.charAt(i);
+
+            if (charSet[val]) {
+                return false;
+            }
+
+            charSet[val] = true;
+        }
+
+        return true;
+
     }
 
 }
